@@ -51,7 +51,7 @@ const NODE_HIGHLIGHT = {
 function Node({ icon, label, active }) {
   return (
     <div
-      className={`flex h-24 w-24 flex-col items-center justify-center rounded-xl border p-3 text-center transition-all duration-300 ${
+      className={`flex h-24 min-w-0 w-full flex-col items-center justify-center rounded-xl border p-2 text-center transition-all duration-300 sm:w-24 sm:p-3 ${
         active
           ? "border-violet-500/60 bg-violet-500/10 text-violet-400 shadow-glow"
           : "border-white/5 bg-white/[0.03] text-slate-500"
@@ -171,15 +171,15 @@ export default function TechnicalDepth() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduce ? undefined : { opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="grid gap-6 p-6 lg:grid-cols-12"
+                className="grid min-w-0 gap-6 p-4 sm:p-6 lg:grid-cols-12"
               >
-                <div className="lg:col-span-6">
+                <div className="min-w-0 lg:col-span-6">
                   <div className="rounded-xl border border-white/5 bg-black/20 p-5">
                     <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
                       Dataflow graph
                     </h4>
 
-                    <div className="mt-6 flex items-center justify-between gap-1 sm:gap-2">
+                    <div className="mt-6 grid min-w-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-1 sm:flex sm:justify-between sm:gap-2">
                       <Node
                         icon={<Brain size={22} />}
                         label="LLM Agent"
@@ -210,7 +210,7 @@ export default function TechnicalDepth() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-6">
+                <div className="min-w-0 lg:col-span-6">
                   <div className="flex h-full flex-col">
                     <div className="flex-1 overflow-hidden rounded-xl border border-white/5 bg-black/40">
                       <div className="flex items-center gap-2 border-b border-white/5 px-4 py-2.5">
@@ -222,14 +222,14 @@ export default function TechnicalDepth() {
                           live
                         </span>
                       </div>
-                      <div className="h-[260px] overflow-y-auto p-4 font-mono text-[10px] leading-relaxed">
+                      <div className="h-[260px] min-w-0 overflow-y-auto p-4 font-mono text-[10px] leading-relaxed">
                         {MCP_STEPS.slice(0, mcpStep + 1).map((step) => (
                           <motion.div
                             key={step.title}
                             initial={reduce ? undefined : { opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="mb-2 font-mono text-[10px] leading-relaxed text-slate-400"
+                            className="mb-2 min-w-0 break-words font-mono text-[10px] leading-relaxed text-slate-400"
                           >
                             <span className="select-none text-violet-500">
                               {" > "}
@@ -274,15 +274,15 @@ export default function TechnicalDepth() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduce ? undefined : { opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="grid gap-6 p-6 lg:grid-cols-12"
+                className="grid min-w-0 gap-6 p-4 sm:p-6 lg:grid-cols-12"
               >
-                <div className="lg:col-span-7">
+                <div className="min-w-0 lg:col-span-7">
                   <div className="rounded-xl border border-white/5 bg-black/20 p-5">
                     <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
                       Event broker flow
                     </h4>
 
-                    <div className="mt-6 grid grid-cols-3 gap-3">
+                    <div className="mt-6 grid min-w-0 grid-cols-3 gap-2 sm:gap-3">
                       <div className="relative flex h-36 flex-col items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] p-3 text-center">
                         <Server size={18} className="mb-2 text-slate-400" />
                         <span className="font-mono text-[10px] font-bold text-slate-300">
@@ -369,7 +369,7 @@ export default function TechnicalDepth() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5">
+                <div className="min-w-0 lg:col-span-5">
                   <div className="flex h-full flex-col">
                     <div className="flex-1 rounded-xl border border-white/5 bg-white/[0.02] p-4">
                       <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
