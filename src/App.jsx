@@ -8,76 +8,58 @@ import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
 import Education from "./components/sections/Education";
 import Contact from "./components/sections/Contact";
+import { ArrowUp } from "lucide-react";
 import "./App.css";
+
+const DIVIDER =
+  "mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-white/10 to-transparent";
+
+function Footer() {
+  return (
+    <footer className="relative z-10 border-t border-white/5 bg-[#090a0f]/40 py-8 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 sm:px-6 md:flex-row md:px-10">
+        <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
+          RC.DEV // RUTIK RAVINDRA CHAVAN
+        </span>
+        <span className="font-mono text-[10px] text-slate-600">
+          © {new Date().getFullYear()} — Built with React, Tailwind & Framer Motion
+        </span>
+        <a
+          href="#top"
+          className="inline-flex items-center gap-1.5 font-mono text-[10px] font-medium text-slate-500 transition-colors hover:text-violet-300"
+          aria-label="Back to top"
+        >
+          Back to top
+          <ArrowUp size={12} />
+        </a>
+      </div>
+    </footer>
+  );
+}
 
 function App() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden text-slate-100 dark:text-slate-100 light:text-slate-800 transition-colors duration-500">
-      {/* Background Layer */}
+    <div className="u-noise relative min-h-screen w-full overflow-x-hidden text-slate-100">
       <BackgroundGrid />
-
-      {/* Navigation Header */}
       <Navbar />
-
-      {/* Sections Wrapper */}
-      <main className="relative z-10 mx-auto flex flex-col items-center">
-        {/* Hero Section */}
+      <main className="relative z-10">
         <Hero />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* About Narrative Section */}
+        <div className={DIVIDER} />
         <About />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* Skills Matrix Section */}
+        <div className={DIVIDER} />
         <Skills />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* Technical Architecture Playground */}
+        <div className={DIVIDER} />
         <TechnicalDepth />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* Experience Timeline Section */}
+        <div className={DIVIDER} />
         <Experience />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* Projects Grid Section */}
+        <div className={DIVIDER} />
         <Projects />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* Certs and Education Section */}
+        <div className={DIVIDER} />
         <Education />
-
-        {/* Section Divider Grid Accent */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent dark:via-white/5 light:via-black/10 max-w-7xl mx-auto" />
-
-        {/* Contact details & form */}
+        <div className={DIVIDER} />
         <Contact />
       </main>
-
-      {/* Simple Footer */}
-      <footer className="relative z-10 border-t border-white/5 bg-[#0b0c10]/40 py-8 dark:border-white/5 dark:bg-[#0b0c10]/40 light:border-black/5 light:bg-slate-100/50">
-        <div className="mx-auto max-w-7xl px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-          <span className="font-mono text-[10px] tracking-wider text-slate-500 uppercase">
-            RC.DEV // RUTIK RAVINDRA CHAVAN
-          </span>
-          <span className="font-mono text-[10px] text-slate-500">
-            © {new Date().getFullYear()} All Rights Reserved. Built with React & Tailwind CSS.
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

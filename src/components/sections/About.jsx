@@ -3,35 +3,25 @@ import { Zap, Brain, Blocks, ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../../data/portfolioData";
 import { useReducedMotion } from "../../hooks";
 
-// Pillar visuals — derived strictly from the CV's narrative.
 const PILLAR_STYLES = {
-  "Distributed Backend Architecture": {
-    icon: Zap,
-    tone: "violet",
-  },
-  "AI Integration & Agentic Systems": {
-    icon: Brain,
-    tone: "fuchsia",
-  },
-  "End-to-End Ownership": {
-    icon: Blocks,
-    tone: "indigo",
-  },
+  "Distributed Backend Architecture": { icon: Zap, tone: "violet" },
+  "AI Integration & Agentic Systems": { icon: Brain, tone: "fuchsia" },
+  "End-to-End Ownership": { icon: Blocks, tone: "indigo" },
 };
 
 const TONES = {
   violet: {
-    iconBg: "bg-violet-500/10 text-violet-600 dark:text-violet-300 dark:bg-violet-500/10",
+    iconBg: "bg-violet-500/10 text-violet-300",
     border: "group-hover:border-violet-500/40",
     glow: "group-hover:bg-violet-500/[0.03]",
   },
   fuchsia: {
-    iconBg: "bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-300 dark:bg-fuchsia-500/10",
+    iconBg: "bg-fuchsia-500/10 text-fuchsia-300",
     border: "group-hover:border-fuchsia-500/40",
     glow: "group-hover:bg-fuchsia-500/[0.03]",
   },
   indigo: {
-    iconBg: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 dark:bg-indigo-500/10",
+    iconBg: "bg-indigo-500/10 text-indigo-300",
     border: "group-hover:border-indigo-500/40",
     glow: "group-hover:bg-indigo-500/[0.03]",
   },
@@ -59,7 +49,6 @@ export default function About() {
     },
   ];
 
-  // The narrative paragraph blocks, drawn from the CV's professional summary.
   const narrative = [
     `I am a ${title.toLowerCase()} with ${"3+"} years of experience designing and operating web APIs, microservices, and database systems. Backend development, for me, is not just about routing requests — it is about building resilient systems that handle real production load gracefully.`,
     `Recently, I have focused on extending this foundation into AI engineering. By building custom MCP servers, RAG pipelines, and agentic workflows, I make it possible for large language models to interact securely and productively with real-world databases and business applications.`,
@@ -81,15 +70,14 @@ export default function About() {
   return (
     <section id="about" className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 md:px-10 md:py-32">
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-        {/* ------------------------------------------------ Narrative column */}
         <div className="lg:col-span-7">
           <span className="u-eyebrow">01 // Professional Narrative</span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Engineering systems that{" "}
             <span className="u-gradient-text">think and scale</span>
           </h2>
 
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-slate-600 dark:text-slate-400">
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-slate-400">
             {focusedPitch}
           </p>
 
@@ -104,14 +92,13 @@ export default function About() {
               <motion.p
                 key={idx}
                 variants={itemVariant}
-                className="text-sm leading-relaxed text-slate-600 dark:text-slate-400"
+                className="text-sm leading-relaxed text-slate-400"
               >
                 {paragraph}
               </motion.p>
             ))}
           </motion.div>
 
-          {/* Quick facts */}
           <motion.div
             variants={containerVariant}
             initial={reduce ? undefined : "hidden"}
@@ -127,12 +114,12 @@ export default function About() {
               <motion.div
                 key={stat.v}
                 variants={itemVariant}
-                className="rounded-xl border border-slate-200 bg-white/50 p-4 text-center dark:border-white/5 dark:bg-white/[0.02]"
+                className="rounded-xl border border-white/5 bg-white/[0.02] p-4 text-center"
               >
-                <div className="font-mono text-2xl font-bold text-violet-600 dark:text-violet-300">
+                <div className="font-mono text-2xl font-bold text-violet-300">
                   {stat.k}
                 </div>
-                <div className="mt-1 text-[11px] font-medium text-slate-500 dark:text-slate-500">
+                <div className="mt-1 text-[11px] font-medium text-slate-500">
                   {stat.v}
                 </div>
               </motion.div>
@@ -140,11 +127,10 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* ------------------------------------------------ Pillars column */}
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
             <span className="u-eyebrow">02 // Technical Principles</span>
-            <h3 className="mt-3 text-xl font-bold text-slate-900 dark:text-white">
+            <h3 className="mt-3 text-xl font-bold text-white">
               How I approach engineering
             </h3>
 
@@ -163,16 +149,16 @@ export default function About() {
                         <Icon size={20} />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-sm font-bold text-slate-900 dark:text-white">
+                        <h4 className="text-sm font-bold text-white">
                           {pillar.title}
                         </h4>
-                        <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                        <p className="mt-2 text-xs leading-relaxed text-slate-400">
                           {pillar.description}
                         </p>
                       </div>
                       <ArrowUpRight
                         size={14}
-                        className="mt-1 shrink-0 text-slate-300 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100 dark:text-slate-600"
+                        className="mt-1 shrink-0 text-slate-600 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
                       />
                     </div>
                   </div>
@@ -180,9 +166,8 @@ export default function About() {
               })}
             </div>
 
-            {/* CV-backed callout */}
-            <div className="mt-6 rounded-xl border border-violet-500/20 bg-violet-500/5 p-4 dark:bg-violet-500/[0.04]">
-              <p className="text-xs leading-relaxed text-violet-700 dark:text-violet-300">
+            <div className="mt-6 rounded-xl border border-violet-500/20 bg-violet-500/[0.04] p-4">
+              <p className="text-xs leading-relaxed text-violet-300">
                 <span className="font-mono font-bold">Focus:</span> delivering production-grade
                 backend systems where reliability meets intelligent automation.
               </p>
