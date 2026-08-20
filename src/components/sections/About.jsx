@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Zap, Brain, Blocks, ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../../data/portfolioData";
 import { useReducedMotion } from "../../hooks";
+import profilePic from "../../assets/profile-pic.jpeg";
 
 const PILLAR_STYLES = {
   "Distributed Backend Architecture": { icon: Zap, tone: "violet" },
@@ -76,6 +77,27 @@ export default function About() {
             Engineering systems that{" "}
             <span className="u-gradient-text">think and scale</span>
           </h2>
+
+          {/* Profile portrait with glow accent */}
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8"
+          >
+            <div className="relative inline-block">
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-violet-600/30 via-fuchsia-500/20 to-indigo-600/30 blur-lg" />
+              <img
+                src={profilePic}
+                alt="Rutik Ravindra Chavan — professional portrait"
+                className="relative h-44 w-36 rounded-3xl border border-violet-500/30 object-cover"
+              />
+              <span className="absolute -bottom-2 -right-2 rounded-lg border border-white/10 bg-[#12131a] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-violet-300">
+                RRC
+              </span>
+            </div>
+          </motion.div>
 
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-slate-400">
             {focusedPitch}

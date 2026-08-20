@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin, CheckCircle, ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../../data/portfolioData";
+import bannerImage from "../../assets/banner image.jpeg";
 
 export default function Contact() {
   const { email, phone, location, linkedin, github } = portfolioData.personal;
@@ -38,6 +39,28 @@ export default function Contact() {
           Have an architecture challenge, need an MCP integration, or want to discuss a
           distributed backend system? Reach out.
         </p>
+
+        {/* Wide banner image */}
+        <div className="relative mt-10 aspect-[5/2] overflow-hidden rounded-2xl border border-white/10">
+          <img
+            src={bannerImage}
+            alt="Software engineering workspace"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-[#090a0f]/40 to-transparent" />
+          <div className="absolute bottom-4 left-5 right-5 flex flex-wrap items-center justify-between gap-2 sm:left-8 sm:right-8">
+            <span className="font-mono text-xs font-semibold tracking-wider text-slate-200">
+              OPEN TO BACKEND / AI / FULL-STACK ROLES
+            </span>
+            <a
+              href={`mailto:${email}`}
+              className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-violet-500 active:scale-[0.98]"
+            >
+              <Mail size={13} />
+              Email me
+            </a>
+          </div>
+        </div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">

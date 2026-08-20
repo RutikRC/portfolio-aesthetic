@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { portfolioData } from "../../data/portfolioData";
 import { useReducedMotion } from "../../hooks";
+import heroImage from "../../assets/hero.png";
 
 const INITIAL_LOGS = [
   { text: "systemd[1]: Starting RutikRC Systems Framework...", type: "system" },
@@ -122,6 +123,19 @@ export default function Hero() {
           </span>
         </motion.div>
 
+        <motion.div variants={item} className="mt-6 lg:hidden">
+          <div className="relative inline-block">
+            <img
+              src={heroImage}
+              alt="Rutik Ravindra Chavan"
+              className="h-24 w-24 rounded-2xl border border-violet-500/30 object-cover shadow-glow"
+            />
+            <span className="absolute -bottom-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 ring-4 ring-[#090a0f]">
+              <span className="h-2 w-2 rounded-full bg-emerald-200" />
+            </span>
+          </div>
+        </motion.div>
+
         <motion.h1
           variants={item}
           className="mt-7 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem]"
@@ -130,24 +144,15 @@ export default function Hero() {
           <span className="u-gradient-text">Ravindra Chavan</span>
         </motion.h1>
 
-        <motion.p
-          variants={item}
-          className="mt-4 text-lg font-semibold text-slate-200 sm:text-xl"
-        >
+        <motion.p variants={item} className="mt-4 text-lg font-semibold text-slate-200 sm:text-xl">
           {title}
         </motion.p>
 
-        <motion.p
-          variants={item}
-          className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-400"
-        >
+        <motion.p variants={item} className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-400">
           {focusedPitch}
         </motion.p>
 
-        <motion.p
-          variants={item}
-          className="mt-4 max-w-xl text-sm leading-relaxed text-slate-500"
-        >
+        <motion.p variants={item} className="mt-4 max-w-xl text-sm leading-relaxed text-slate-500">
           {summary}
         </motion.p>
 
@@ -200,10 +205,7 @@ export default function Hero() {
             className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition-all hover:shadow-xl hover:shadow-violet-600/30 active:scale-[0.98]"
           >
             Explore My Work
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
+            <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
             href="#contact"
@@ -224,6 +226,20 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: reduce ? 0 : 0.25, ease: [0.22, 1, 0.36, 1] }}
         className="mt-16 w-full max-w-xl flex-1 lg:mt-0"
       >
+        <div className="mb-8 hidden justify-center lg:flex">
+          <div className="relative">
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-violet-600/40 via-fuchsia-500/30 to-indigo-600/40 blur-md" />
+            <img
+              src={heroImage}
+              alt="Rutik Ravindra Chavan — backend & AI systems engineer"
+              className="relative h-36 w-36 rounded-3xl border border-violet-500/30 object-cover"
+            />
+            <span className="absolute -bottom-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 ring-2 ring-[#090a0f]">
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-200" />
+            </span>
+          </div>
+        </div>
+
         <div className="u-card relative overflow-hidden shadow-xl shadow-black/30">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
 
@@ -241,7 +257,8 @@ export default function Hero() {
           </div>
 
           <div className="flex items-center justify-between border-b border-white/5 bg-white/[0.02] px-4 py-2">
-            <span className="font-mono text-[10px] text-slate-400">
+            <span className="flex items-center gap-2 font-mono text-[10px] text-slate-400">
+              <img src={heroImage} alt="" className="h-4 w-4 rounded-full object-cover" />
               <span className="text-violet-500">●</span> RutikRC · production
             </span>
             <span className="flex items-center gap-1.5 font-mono text-[10px] text-slate-500">
