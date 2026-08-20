@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design Tokens (Tailwind v4)
+   ========================================================================== */
+@theme {
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Dark-first palette */
+  --color-ink-950: #090a0f;
+  --color-ink-900: #0b0c10;
+  --color-ink-850: #0f1015;
+  --color-ink-800: #12131a;
+  --color-ink-700: #16171d;
+  --color-ink-600: #1c1d26;
+
+  /* Accent scale */
+  --color-accent-300: #c4b5fd;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+
+  /* Motion easings */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Shadows */
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.04), 0 8px 24px -8px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.05), 0 20px 40px -12px rgba(0, 0, 0, 0.16);
+  --shadow-glow: 0 0 40px -8px rgba(139, 92, 246, 0.35);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+  --bg-app: #090a0f;
+  --fg-primary: #f1f5f9;
+  --fg-secondary: #94a3b8;
+  --fg-muted: #64748b;
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.1);
+  --surface-1: rgba(15, 16, 21, 0.6);
+  --surface-2: rgba(18, 19, 26, 0.7);
+  --surface-hover: rgba(28, 29, 38, 0.6);
+  --glow-ambient-1: rgba(99, 102, 241, 0.05);
+  --glow-ambient-2: rgba(168, 85, 247, 0.05);
+  --caret: rgba(139, 92, 246, 0.6);
+}
+
+html:not(.dark) {
+  color-scheme: light;
+  --bg-app: #fafafa;
+  --fg-primary: #0f172a;
+  --fg-secondary: #475569;
+  --fg-muted: #94a3b8;
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.12);
+  --surface-1: rgba(255, 255, 255, 0.7);
+  --surface-2: rgba(255, 255, 255, 0.85);
+  --surface-hover: rgba(255, 255, 255, 1);
+  --glow-ambient-1: rgba(99, 102, 241, 0.08);
+  --glow-ambient-2: rgba(168, 85, 247, 0.07);
+  --caret: rgba(124, 58, 237, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--fg-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #fff;
+}
+
+html:not(.dark) ::selection {
+  background: rgba(139, 92, 246, 0.2);
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.35);
+  background-clip: content-box;
+}
+
+/* ==========================================================================
+   Reusable Utility Classes
+   ========================================================================== */
+
+/* -- Cards -- */
+.u-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.u-card-hover:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  background: var(--surface-hover);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* -- Text -- */
+.u-gradient-text {
+  background: linear-gradient(120deg, #a78bfa 0%, #e879f9 45%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html:not(.dark) .u-gradient-text {
+  background: linear-gradient(120deg, #7c3aed 0%, #c026d3 45%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* -- Grid background overlay -- */
+.u-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(139, 92, 246, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+html:not(.dark) .u-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+/* -- Fine noise texture -- */
+.u-noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* -- Section label chip -- */
+.u-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+
+html:not(.dark) .u-eyebrow {
+  color: #7c3aed;
+}
+
+.u-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-accent-500));
+}
+
+/* -- Terminal caret -- */
+.u-caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  background: var(--caret);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* -- Focus visibility -- */
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* -- Reduced motion: strip animations -- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .u-caret::after {
+    animation: none;
+  }
+}
