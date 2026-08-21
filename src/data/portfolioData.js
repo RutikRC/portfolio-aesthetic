@@ -196,30 +196,30 @@ export const portfolioData = {
   ],
 
   experience: [
-    {
-      role: "Founding Engineer",
-      company: "Finni Health",
-      type: "Full-time",
-      period: "Jul 2026 – Present",
-      location: "Remote / US & Canada",
-      summary:
-        "Building the product foundations that help autism care providers start, run, and grow independent practices.",
-      description: [
-        "Own products end-to-end, from initial feature specifications and backend APIs through frontend implementation and ongoing improvements after launch.",
-        "Build elegant software for the modern healthcare landscape while working closely with cofounders, investors, and customers to understand the problem deeply.",
-        "Make foundational product and engineering decisions in an autonomous, creative startup environment while shaping the team's culture and ways of working.",
-        "Develop across the stack with React, React Native, TypeScript, Node.js, and Firebase to support practice management, patient data, scheduling, and payments.",
-      ],
-      technologies: [
-        "React",
-        "React Native",
-        "TypeScript",
-        "Node.js",
-        "Firebase",
-        "Healthcare Technology",
-      ],
-      accent: "Backend Systems",
-    },
+    // {
+    //   role: "Founding Engineer",
+    //   company: "Finni Health",
+    //   type: "Full-time",
+    //   period: "Jul 2026 – Present",
+    //   location: "Remote / US & Canada",
+    //   summary:
+    //     "Building the product foundations that help autism care providers start, run, and grow independent practices.",
+    //   description: [
+    //     "Own products end-to-end, from initial feature specifications and backend APIs through frontend implementation and ongoing improvements after launch.",
+    //     "Build elegant software for the modern healthcare landscape while working closely with cofounders, investors, and customers to understand the problem deeply.",
+    //     "Make foundational product and engineering decisions in an autonomous, creative startup environment while shaping the team's culture and ways of working.",
+    //     "Develop across the stack with React, React Native, TypeScript, Node.js, and Firebase to support practice management, patient data, scheduling, and payments.",
+    //   ],
+    //   technologies: [
+    //     "React",
+    //     "React Native",
+    //     "TypeScript",
+    //     "Node.js",
+    //     "Firebase",
+    //     "Healthcare Technology",
+    //   ],
+    //   accent: "Backend Systems",
+    // },
     {
       role: "Founder",
       company: "Ruprakash Systems",
